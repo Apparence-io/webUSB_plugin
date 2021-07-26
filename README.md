@@ -43,20 +43,20 @@ await usbDevice.close(pairedDevice);
 ### USBDevice
 
 - [x] Get device info with configuration
-- [x] open(): Start session
-- [x] close(): Close session
-- [x] selectConfiguration(configurationValue): Select a specified configuration
-- [x] claimInterface(interfaceNumber): Claim an interface for exclusive access
-- [x] releaseInterface(interfaceNumber): Release a claimed interface
-- [x] controlTransferIn(setup, length): Return result of a command
-- [x] controlTransferOut(setup, data) : Send a command to device
-- [x] transferIn(): Return data from device
-- [x] transferOut(): Send data to device
+- [x] open(): *Start session*
+- [x] close(): *Close session*
+- [x] selectConfiguration(configurationValue): *Select a specified configuration*
+- [x] claimInterface(interfaceNumber): *Claim an interface for exclusive access*
+- [x] releaseInterface(interfaceNumber): *Release a claimed interface*
+- [x] controlTransferIn(setup, length): *Return result of a command*
+- [x] controlTransferOut(setup, data) : *Send a command to device*
+- [x] transferIn(): *Return data from device*
+- [x] transferOut(): *Send data to device*
 - [x] clearHalt()
-- [x] reset(): Reset device
+- [x] reset(): *Reset device*
 - [x] isochronousTransferIn()
 - [x] isochronousTransferOut()
 
 ### Events
-- [x] connect
-- [x] disconnect
+- [x] OnConnect
+- [x] OnDisconnect
