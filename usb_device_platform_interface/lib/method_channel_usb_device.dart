@@ -155,18 +155,18 @@ class MethodChannelUsbDevice extends UsbDevicePlatform {
   }
 
   @override
-  Future<USBInTransferResult> isochronousTransferIn(
+  Future<USBIsochronousInTransferResult> isochronousTransferIn(
       dynamic device, int endpointNumber, List<int> packetLengths) {
     return methodChannel
         .invokeMethod<bool>('isochronousTransferIn', [device, endpointNumber, packetLengths])
-        .then<USBInTransferResult>((dynamic result) => result);
+        .then<USBIsochronousInTransferResult>((dynamic result) => result);
   }
 
   @override
-  Future<USBOutTransferResult> isochronousTransferOut(
+  Future<USBIsochronousOutTransferResult> isochronousTransferOut(
       dynamic device, int endpointNumber, dynamic data) {
     return methodChannel
         .invokeMethod<bool>('isochronousTransferOut', [device, endpointNumber, data])
-        .then<USBOutTransferResult>((dynamic result) => result);
+        .then<USBIsochronousOutTransferResult>((dynamic result) => result);
   }
 }

@@ -6,6 +6,8 @@ import 'package:usb_device_platform_interface/models/param/device_filter.dart';
 import 'package:usb_device_platform_interface/models/param/setup_param.dart';
 
 import 'models/transfer/usb_in_transfer_result.dart';
+import 'models/transfer/usb_isochronous_in_transfer_result.dart';
+import 'models/transfer/usb_isochronous_out_transfer_result.dart';
 import 'models/transfer/usb_out_transfer_result.dart';
 
 export 'package:usb_device_platform_interface/models/configurations/usb_interface.dart';
@@ -17,6 +19,8 @@ export 'package:usb_device_platform_interface/models/param/setup_param.dart';
 export 'package:usb_device_platform_interface/models/param/device_filter.dart';
 export 'package:usb_device_platform_interface/models/transfer/usb_in_transfer_result.dart';
 export 'package:usb_device_platform_interface/models/transfer/usb_out_transfer_result.dart';
+export 'package:usb_device_platform_interface/models/transfer/usb_isochronous_in_transfer_result.dart';
+export 'package:usb_device_platform_interface/models/transfer/usb_isochronous_out_transfer_result.dart';
 export 'package:usb_device_platform_interface/models/transfer/response/status_response.dart';
 
 abstract class UsbDevicePlatform extends PlatformInterface {
@@ -145,15 +149,15 @@ abstract class UsbDevicePlatform extends PlatformInterface {
     throw UnimplementedError('transferOut() has not been implemented.');
   }
 
-//Returns a Future that resolves when time sensitive information has been transmitted to the USB device.
-  Future<USBInTransferResult> isochronousTransferIn(
+///Returns a Future that resolves when time sensitive information has been transmitted to the USB device.
+  Future<USBIsochronousInTransferResult> isochronousTransferIn(
       dynamic device, int endpointNumber, List<int> packetLengths) {
     throw UnimplementedError(
         'isochronousTransferIn() has not been implemented.');
   }
 
   /// Returns a Future that resolves when time sensitive information has been transmitted from the USB device.
-  Future<USBOutTransferResult> isochronousTransferOut(
+  Future<USBIsochronousOutTransferResult> isochronousTransferOut(
       dynamic device, int endpointNumber, dynamic data) {
     throw UnimplementedError(
         'isochronousTransferOut() has not been implemented.');

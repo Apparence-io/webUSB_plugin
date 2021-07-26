@@ -126,20 +126,20 @@ class WebUSBPlugin extends UsbDevicePlatform {
   }
 
   @override
-  Future<USBInTransferResult> isochronousTransferIn(
+  Future<USBIsochronousInTransferResult> isochronousTransferIn(
       dynamic device, int endpointNumber, List<int> packetLengths) async {
     var res = await promiseToFuture(this
         ._webUsbJS
         .isochronousTransferIn(device, endpointNumber, packetLengths));
-    return USBInTransferResult.fromDataJS(res);
+    return USBIsochronousInTransferResult.fromDataJS(res);
   }
 
   @override
-  Future<USBOutTransferResult> isochronousTransferOut(
+  Future<USBIsochronousOutTransferResult> isochronousTransferOut(
       dynamic device, int endpointNumber, dynamic data) async {
     var res = await promiseToFuture(
         this._webUsbJS.isochronousTransferOut(device, endpointNumber, data));
-    return USBOutTransferResult.fromDataJS(res);
+    return USBIsochronousOutTransferResult.fromDataJS(res);
   }
 
   @override

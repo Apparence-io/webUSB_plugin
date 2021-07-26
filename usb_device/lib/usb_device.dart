@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:usb_device_platform_interface/usb_device_platform_interface.dart';
 
 export 'package:usb_device_platform_interface/usb_device_platform_interface.dart';
+
 class UsbDevice {
   /// Constructs a singleton instance of [UsbDeviceService].
   ///
@@ -53,18 +54,12 @@ class UsbDevice {
   /// Get available configuration in device
   Future<List<USBConfiguration>> getAvailableConfigurations(
       dynamic pairedDevice) {
-    if (pairedDevice != null) {
-      return _platform.getAvailableConfigurations(pairedDevice);
-    }
-    return Future.error("There is no paired device");
+    return _platform.getAvailableConfigurations(pairedDevice);
   }
 
   /// get selected configuration of paired device
   Future<USBConfiguration?> getSelectedConfiguration(dynamic pairedDevice) {
-    if (pairedDevice != null) {
-      return _platform.getSelectedConfiguration(pairedDevice);
-    }
-    return Future.error("There is no paired device");
+    return _platform.getSelectedConfiguration(pairedDevice);
   }
 
   /// Start session with the device
@@ -125,5 +120,16 @@ class UsbDevice {
   Future<USBOutTransferResult> transferOut(
       dynamic device, endpointNumber, ByteBuffer data) {
     return _platform.transferOut(device, endpointNumber, data);
+  }
+
+  Future<USBIsochronousOutTransferResult> isochronousTransferOut(
+      dynamic device, endpointNumber, ByteBuffer data) {
+    return _platform.isochronousTransferOut(device, endpointNumber, data);
+  }
+
+  Future<USBIsochronousInTransferResult> isochronousTransferIn(
+      dynamic device, endpointNumber, List<int> packetLengths) {
+    return _platform.isochronousTransferIn(
+        device, endpointNumber, packetLengths);
   }
 }
