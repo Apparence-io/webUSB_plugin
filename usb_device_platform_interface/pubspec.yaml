@@ -1,7 +1,7 @@
 name: usb_device_platform_interface
-description: A new Flutter package project.
+description: A common platform interface for usb_device plugin.
 version: 0.0.1
-homepage:
+repository: https://github.com/Apparence-io/webUSB_plugin/
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

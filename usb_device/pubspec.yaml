@@ -1,8 +1,8 @@
 name: usb_device
-description: A new Flutter package project.
+description: Flutter plugin for connecting/accessing usb device.
 version: 0.0.1
-homepage:
-publish_to: none
+repository: https://github.com/Apparence-io/webUSB_plugin/
+
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -11,10 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  usb_device_web:
-    path: ../usb_device_web/
-  usb_device_platform_interface:
-    path: ../usb_device_platform_interface/
+  usb_device_web: ^0.0.1
+  usb_device_platform_interface: ^0.0.1
 
 dev_dependencies:
   flutter_test:
