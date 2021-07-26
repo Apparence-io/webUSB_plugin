@@ -1,14 +1,62 @@
-# usb_device
+<p align="center">
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="License: MIT"></a>
+<a href="https://pub.dev/packages/bart"><img src="https://img.shields.io/pub/v/bart" alt="pub dev webusb"></a>
+</p>
 
-A new Flutter package project.
+# **WebUSB plugin** 
+<a href="https://en.apparence.io"><img src="https://github.com/Apparence-io/bart/raw/master/.github/img/logo.png" alt="Apparence.io logo"></a>
+<p><small>Developed with 💙 &nbsp;by Apparence.io</small></p>
 
-## Getting Started
+This plugin provide access to USB devices from web pages with WebUSB.
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+## Platform Support
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+| Android | iOS | MacOS | Web | Linux | Windows |
+| :-----: | :-: | :---: | :-: | :---: | :----: |
+|   ➖    | ➖   |  ➖  | ✔️  |  ➖   |   ➖   |
+
+
+## Usage
+
+You can get wi-fi related information using:
+
+```dart
+import 'package:usb_device/usb_device.dart';
+
+final UsbDevice usbDevice = UsbDevice();
+
+var pairedDevices = await usbDevice.pairedDevices;
+var pairedDevice = await usbDevice.requestDevices([DeviceFilter(vendorId : 0x00, productId: 0x00)]);
+List<USBConfiguration> availableConfigurations = await usbDevice.getAvailableConfigurations(pairedDevice);
+USBDeviceInfo deviceInfo = await usbDevice.getPairedDeviceInfo(pairedDevice);
+await usbDevice.open(pairedDevice);
+await usbDevice.close(pairedDevice);
+```
+
+## Implementation
+
+### USB
+
+- [x] getDevices() : Get paired attached devices
+- [x] requestDevice(filters): pair a device with filter or not
+
+### USBDevice
+
+- [x] Get device info with configuration
+- [x] open(): *Start session*
+- [x] close(): *Close session*
+- [x] selectConfiguration(configurationValue): *Select a specified configuration*
+- [x] claimInterface(interfaceNumber): *Claim an interface for exclusive access*
+- [x] releaseInterface(interfaceNumber): *Release a claimed interface*
+- [x] controlTransferIn(setup, length): *Return result of a command*
+- [x] controlTransferOut(setup, data) : *Send a command to device*
+- [x] transferIn(): *Return data from device*
+- [x] transferOut(): *Send data to device*
+- [x] clearHalt()
+- [x] reset(): *Reset device*
+- [x] isochronousTransferIn()
+- [x] isochronousTransferOut()
+
+### Events
+- [x] OnConnect
+- [x] OnDisconnect
