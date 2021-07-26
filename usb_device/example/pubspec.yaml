@@ -22,7 +22,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  usb_device: ^0.0.1
+  usb_device:
+    path: ../
 
 
   # The following adds the Cupertino Icons font to your application.
