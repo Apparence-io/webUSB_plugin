@@ -56,16 +56,18 @@ class MainPresenter {
   void requestDevices() async {
     this.viewModel.pairedDevice = await this
         ._usbDevice
-        .requestDevices([DeviceFilter(vendorId: 0x0483, productId: 0xA32C)]);
+        .requestDevices([]);
     this.viewModel.fabIsVisible = true;
     this.viewInterface.refresh();
   }
 
   Map<String, dynamic> getPairedDeviceInfo() {
     var pairedDevice = this.viewModel.pairedDevice;
-    final USBConfiguration currentConfiguration =
-        _getCurrentUSBConfigurationInfo(
-            getProperty(pairedDevice, 'configuration'));
+    final USBConfiguration? currentConfiguration =
+        getProperty(pairedDevice, 'configuration') == null
+            ? null
+            : _getCurrentUSBConfigurationInfo(
+                getProperty(pairedDevice, 'configuration'));
     final List<USBConfiguration> configurations =
         _getAvailableUSBConfigurations(
             getProperty(pairedDevice, 'configurations'));

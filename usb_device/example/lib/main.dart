@@ -84,8 +84,10 @@ class _MainPageState extends State<MainPage> implements MainView {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  Text("Web USB supported: " +
-                      this.model!.isSupported.toString()),
+                  Center(
+                    child: Text("Web USB supported: " +
+                        this.model!.isSupported.toString()),
+                  ),
                   SizedBox(height: 20.0),
                   if (this.model!.pairedDevice != null)
                     this._buildPairedDeviceInfo()
@@ -158,7 +160,9 @@ class _MainPageState extends State<MainPage> implements MainView {
 
   Widget _buildRequestDeviceButton() {
     return ElevatedButton(
-      onPressed: this.model!.isLoading ? null : this.presenter.requestDevices,
+      onPressed: () {
+        return this.model!.isLoading ? null : this.presenter.requestDevices();
+      },
       child: const Text('Request Device'),
     );
   }
