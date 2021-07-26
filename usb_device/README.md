@@ -1,6 +1,6 @@
 <p align="center">
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="License: MIT"></a>
-<a href="https://pub.dev/packages/bart"><img src="https://img.shields.io/pub/v/bart" alt="pub dev webusb"></a>
+<a href="https://pub.dev/packages/bart"><img src="https://img.shields.io/pub/v/usb_device" alt="pub dev webusb"></a>
 </p>
 
 # **WebUSB plugin** 
