@@ -37,23 +37,23 @@ await usbDevice.close(pairedDevice);
 
 ### USB
 
-- [x] getDevices()
-- [x] requestDevice()
+- [x] getDevices() : Get paired attached devices
+- [x] requestDevice(filters): pair a device with filter or not
 
 ### USBDevice
 
 - [x] Get device info with configuration
-- [x] open()
-- [x] close()
-- [x] selectConfiguration()
-- [x] claimInterface()
-- [x] releaseInterface()
-- [x] controlTransferIn()
-- [x] controlTransferOut()
-- [x] transferIn()
-- [x] transferOut()
+- [x] open(): Start session
+- [x] close(): Close session
+- [x] selectConfiguration(configurationValue): Select a specified configuration
+- [x] claimInterface(interfaceNumber): Claim an interface for exclusive access
+- [x] releaseInterface(interfaceNumber): Release a claimed interface
+- [x] controlTransferIn(setup, length): Return result of a command
+- [x] controlTransferOut(setup, data) : Send a command to device
+- [x] transferIn(): Return data from device
+- [x] transferOut(): Send data to device
 - [x] clearHalt()
-- [x] reset()
+- [x] reset(): Reset device
 - [x] isochronousTransferIn()
 - [x] isochronousTransferOut()
 
