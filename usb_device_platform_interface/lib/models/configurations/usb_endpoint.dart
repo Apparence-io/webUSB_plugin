@@ -21,8 +21,8 @@ class USBEndpoint {
             type: getProperty(endpoint, "type")))
         .toList();
   }
+
   @override
   String toString() =>
       'USBEndpoint(direction: $direction, endpointNumber: $endpointNumber, packetSize: $packetSize, type: $type )';
 }
-

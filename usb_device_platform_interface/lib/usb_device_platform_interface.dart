@@ -80,18 +80,17 @@ abstract class UsbDevicePlatform extends PlatformInterface {
     throw UnimplementedError('getPairedDeviceInfo() has not been implemented.');
   }
 
-
   /// Return a list of available configuration to be selected
   Future<List<USBConfiguration>> getAvailableConfigurations(
-      dynamic pairedDevice){
-    throw UnimplementedError('getAvailableConfiguration() has not been implemented.');
+      dynamic pairedDevice) {
+    throw UnimplementedError(
+        'getAvailableConfiguration() has not been implemented.');
   }
 
-  Future<USBConfiguration?> getSelectedConfiguration(
-      dynamic pairedDevice){
-    throw UnimplementedError('getSelectedConfiguration() has not been implemented.');
+  Future<USBConfiguration?> getSelectedConfiguration(dynamic pairedDevice) {
+    throw UnimplementedError(
+        'getSelectedConfiguration() has not been implemented.');
   }
-
 
   /// Returns a Future that resolves when all open interfaces are released and the device session has ended.
   Future close(dynamic device) {
@@ -149,7 +148,7 @@ abstract class UsbDevicePlatform extends PlatformInterface {
     throw UnimplementedError('transferOut() has not been implemented.');
   }
 
-///Returns a Future that resolves when time sensitive information has been transmitted to the USB device.
+  ///Returns a Future that resolves when time sensitive information has been transmitted to the USB device.
   Future<USBIsochronousInTransferResult> isochronousTransferIn(
       dynamic device, int endpointNumber, List<int> packetLengths) {
     throw UnimplementedError(

@@ -111,7 +111,8 @@ class WebUSBPlugin extends UsbDevicePlatform {
 
       return USBInTransferResult.fromDataJS(res);
     } on TimeoutException {
-      return USBInTransferResult(data: Uint8List(0), status: StatusResponse.empty_data);
+      return USBInTransferResult(
+          data: Uint8List(0), status: StatusResponse.empty_data);
     } on Error catch (e) {
       return Future.error(e);
     }

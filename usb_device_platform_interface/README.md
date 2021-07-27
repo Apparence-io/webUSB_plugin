@@ -1,6 +1,6 @@
 # usb_device_platform_interface
 
-A new Flutter package project.
+A common platform interface for usb_device plugin.
 
 ## Getting Started
 

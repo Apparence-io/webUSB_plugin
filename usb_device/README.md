@@ -3,7 +3,7 @@
 <a href="https://pub.dev/packages/bart"><img src="https://img.shields.io/pub/v/usb_device" alt="pub dev webusb"></a>
 </p>
 
-# **WebUSB plugin** 
+# **USB Device plugin** 
 <a href="https://en.apparence.io"><img src="https://github.com/Apparence-io/bart/raw/master/.github/img/logo.png" alt="Apparence.io logo"></a>
 <p><small>Developed with 💙 &nbsp;by Apparence.io</small></p>
 

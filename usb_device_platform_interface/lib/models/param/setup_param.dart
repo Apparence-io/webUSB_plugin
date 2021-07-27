@@ -1,9 +1,9 @@
 class SetupParam {
-   final String requestType;
-    final String recipient;
-    final int request;
-    final int value;
-    final int index;
+  final String requestType;
+  final String recipient;
+  final int request;
+  final int value;
+  final int index;
 
   SetupParam({
     required this.requestType,
@@ -12,5 +12,4 @@ class SetupParam {
     required this.value,
     required this.index,
   });
-
 }

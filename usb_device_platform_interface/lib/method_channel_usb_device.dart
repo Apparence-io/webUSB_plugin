@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:usb_device_platform_interface/models/configurations/usb_configuration.dart';
@@ -51,15 +50,14 @@ class MethodChannelUsbDevice extends UsbDevicePlatform {
 
   @override
   Future<List<USBConfiguration>> getAvailableConfigurations(
-      dynamic pairedDevice){
+      dynamic pairedDevice) {
     return methodChannel
         .invokeMethod<bool>('getAvailableConfigurations', pairedDevice)
         .then<List<USBConfiguration>>((dynamic result) => result);
   }
 
   @override
-  Future<USBConfiguration?> getSelectedConfiguration(
-      dynamic pairedDevice){
+  Future<USBConfiguration?> getSelectedConfiguration(dynamic pairedDevice) {
     return methodChannel
         .invokeMethod<bool>('getSelectedConfiguration', pairedDevice)
         .then<USBConfiguration>((dynamic result) => result);
@@ -88,16 +86,14 @@ class MethodChannelUsbDevice extends UsbDevicePlatform {
 
   @override
   Future claimInterface(dynamic device, int interfaceNumber) {
-    return methodChannel
-        .invokeMethod<bool>('claimInterface', [device, interfaceNumber])
-        .then<void>((dynamic result) => result);
+    return methodChannel.invokeMethod<bool>('claimInterface',
+        [device, interfaceNumber]).then<void>((dynamic result) => result);
   }
 
   @override
   Future releaseInterface(dynamic device, int interfaceNumber) {
-    return methodChannel
-        .invokeMethod<bool>('releaseInterface', [device, interfaceNumber])
-        .then<void>((dynamic result) => result);
+    return methodChannel.invokeMethod<bool>('releaseInterface',
+        [device, interfaceNumber]).then<void>((dynamic result) => result);
   }
 
   @override
@@ -109,64 +105,78 @@ class MethodChannelUsbDevice extends UsbDevicePlatform {
 
   @override
   Future selectConfiguration(dynamic device, int configurationValue) {
-    return methodChannel
-        .invokeMethod<bool>('selectConfiguration', [device, configurationValue])
-        .then<void>((dynamic result) => result);
+    return methodChannel.invokeMethod<bool>('selectConfiguration',
+        [device, configurationValue]).then<void>((dynamic result) => result);
   }
 
   @override
   Future clearHalt(dynamic device, String direction, int endpointNumber) {
-    return methodChannel
-        .invokeMethod<bool>('clearHalt', [device, direction, endpointNumber])
-        .then<void>((dynamic result) => result);
+    return methodChannel.invokeMethod<bool>('clearHalt', [
+      device,
+      direction,
+      endpointNumber
+    ]).then<void>((dynamic result) => result);
   }
 
   @override
   Future<USBInTransferResult> controlTransferIn(
-      dynamic device, SetupParam setup, {int? length}) {
-    return methodChannel
-        .invokeMethod<bool>('controlTransferIn', [device, setup, length])
-        .then<USBInTransferResult>((dynamic result) => result);
+      dynamic device, SetupParam setup,
+      {int? length}) {
+    return methodChannel.invokeMethod<bool>('controlTransferIn', [
+      device,
+      setup,
+      length
+    ]).then<USBInTransferResult>((dynamic result) => result);
   }
 
   @override
   Future<USBOutTransferResult> controlTransferOut(
       dynamic device, SetupParam setup,
       {dynamic data}) {
-    return methodChannel
-        .invokeMethod<bool>('controlTransferOut', [device, setup, data])
-        .then<USBOutTransferResult>((dynamic result) => result);
+    return methodChannel.invokeMethod<bool>('controlTransferOut', [
+      device,
+      setup,
+      data
+    ]).then<USBOutTransferResult>((dynamic result) => result);
   }
 
   @override
   Future<USBInTransferResult> transferIn(
       dynamic device, int endpointNumber, int length) {
-    return methodChannel
-        .invokeMethod<bool>('transferIn', [device, endpointNumber, length])
-        .then<USBInTransferResult>((dynamic result) => result);
+    return methodChannel.invokeMethod<bool>('transferIn', [
+      device,
+      endpointNumber,
+      length
+    ]).then<USBInTransferResult>((dynamic result) => result);
   }
 
   @override
   Future<USBOutTransferResult> transferOut(
       dynamic device, int endpointNumber, dynamic data) {
-    return methodChannel
-        .invokeMethod<bool>('transferOut', [device, endpointNumber, data])
-        .then<USBOutTransferResult>((dynamic result) => result);
+    return methodChannel.invokeMethod<bool>('transferOut', [
+      device,
+      endpointNumber,
+      data
+    ]).then<USBOutTransferResult>((dynamic result) => result);
   }
 
   @override
   Future<USBIsochronousInTransferResult> isochronousTransferIn(
       dynamic device, int endpointNumber, List<int> packetLengths) {
-    return methodChannel
-        .invokeMethod<bool>('isochronousTransferIn', [device, endpointNumber, packetLengths])
-        .then<USBIsochronousInTransferResult>((dynamic result) => result);
+    return methodChannel.invokeMethod<bool>('isochronousTransferIn', [
+      device,
+      endpointNumber,
+      packetLengths
+    ]).then<USBIsochronousInTransferResult>((dynamic result) => result);
   }
 
   @override
   Future<USBIsochronousOutTransferResult> isochronousTransferOut(
       dynamic device, int endpointNumber, dynamic data) {
-    return methodChannel
-        .invokeMethod<bool>('isochronousTransferOut', [device, endpointNumber, data])
-        .then<USBIsochronousOutTransferResult>((dynamic result) => result);
+    return methodChannel.invokeMethod<bool>('isochronousTransferOut', [
+      device,
+      endpointNumber,
+      data
+    ]).then<USBIsochronousOutTransferResult>((dynamic result) => result);
   }
 }

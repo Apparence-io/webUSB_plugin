@@ -8,8 +8,8 @@ class USBIsochronousOutTransferResult {
     required this.packets,
   });
 
-
-  static USBIsochronousOutTransferResult fromDataJS(dynamic dataJS){
-    return USBIsochronousOutTransferResult(packets: getProperty(dataJS, 'packets'));
+  static USBIsochronousOutTransferResult fromDataJS(dynamic dataJS) {
+    return USBIsochronousOutTransferResult(
+        packets: getProperty(dataJS, 'packets'));
   }
 }

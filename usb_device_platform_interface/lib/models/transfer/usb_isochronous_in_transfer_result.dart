@@ -10,9 +10,10 @@ class USBIsochronousInTransferResult {
     required this.packets,
   });
 
-
-  static USBIsochronousInTransferResult fromDataJS(dynamic dataJS){
+  static USBIsochronousInTransferResult fromDataJS(dynamic dataJS) {
     var data = getProperty(dataJS, 'data');
-    return USBIsochronousInTransferResult(data : Uint8List.view(getProperty(data, 'buffer')), packets: getProperty(dataJS, 'packets'));
+    return USBIsochronousInTransferResult(
+        data: Uint8List.view(getProperty(data, 'buffer')),
+        packets: getProperty(dataJS, 'packets'));
   }
 }

@@ -14,7 +14,9 @@ class USBAlternateInterface {
     return alternateInterfaces
         .map((e) => USBAlternateInterface(
               alternateSetting: getProperty(e, "alternateSetting"),
-              endpoints: getProperty(e, "endpoints") == null ? null : USBEndpoint.fromEndpoints(getProperty(e, "endpoints")) ,
+              endpoints: getProperty(e, "endpoints") == null
+                  ? null
+                  : USBEndpoint.fromEndpoints(getProperty(e, "endpoints")),
             ))
         .toList();
   }

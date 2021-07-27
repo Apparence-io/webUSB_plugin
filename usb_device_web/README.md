@@ -1,6 +1,6 @@
 # usb_device_web
 
-A new Flutter package project.
+A stub implementation of the Device usb plugin for Web
 
 ## Getting Started
 

@@ -1,6 +1,6 @@
 name: usb_device_platform_interface
-description: A common platform interface for usb_device plugin.
-version: 0.0.1
+description: A common platform interface for usb_device plugin. this package is used in usb_device plugin
+version: 0.0.2
 repository: https://github.com/Apparence-io/webUSB_plugin/
 
 environment:

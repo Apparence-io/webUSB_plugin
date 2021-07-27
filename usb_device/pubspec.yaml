@@ -1,6 +1,6 @@
 name: usb_device
 description: Flutter plugin for connecting/accessing usb device.
-version: 0.0.2
+version: 0.0.3
 repository: https://github.com/Apparence-io/webUSB_plugin/
 
 
