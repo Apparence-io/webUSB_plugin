@@ -54,7 +54,7 @@ abstract class UsbDevicePlatform extends PlatformInterface {
   }
 
   /// Returns a Future with the device object that matches the specified filter by predefined vendor ID, product ID, class or subclass code, protocol code or serial number.
-  Future<dynamic> requestDevices(List<DeviceFilter> filters) {
+   Future<USBDevice> requestDevices(USBDeviceRequestOptions filters) {
     throw UnimplementedError('requestDevices() has not been implemented.');
   }
 

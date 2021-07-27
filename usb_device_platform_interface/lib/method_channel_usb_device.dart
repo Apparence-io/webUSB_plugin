@@ -28,7 +28,7 @@ class MethodChannelUsbDevice extends UsbDevicePlatform {
   }
 
   @override
-  Future<dynamic> requestDevices(List<DeviceFilter> filters) {
+   Future<USBDevice> requestDevices(USBDeviceRequestOptions filters) {
     return methodChannel
         .invokeMethod<bool>('requestDevices', filters)
         .then<dynamic>((dynamic result) => result);

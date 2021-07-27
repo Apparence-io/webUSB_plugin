@@ -22,7 +22,8 @@ dependencies:
     sdk: flutter
   flutter_web_plugins:
     sdk: flutter
-  usb_device_platform_interface: ^0.0.1
+  usb_device_platform_interface:
+    path: ../usb_device_platform_interface/
   js: ^0.6.3
 dev_dependencies:
   flutter_test:
