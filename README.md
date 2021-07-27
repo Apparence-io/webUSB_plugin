@@ -18,19 +18,17 @@ This plugin provide access to USB devices from web pages with WebUSB.
 
 ## Usage
 
-You can get wi-fi related information using:
-
 ```dart
 import 'package:usb_device/usb_device.dart';
 
 final UsbDevice usbDevice = UsbDevice();
 
-var pairedDevices = await usbDevice.pairedDevices;
-var pairedDevice = await usbDevice.requestDevices([DeviceFilter(vendorId : 0x00, productId: 0x00)]);
-List<USBConfiguration> availableConfigurations = await usbDevice.getAvailableConfigurations(pairedDevice);
-USBDeviceInfo deviceInfo = await usbDevice.getPairedDeviceInfo(pairedDevice);
-await usbDevice.open(pairedDevice);
-await usbDevice.close(pairedDevice);
+var pairedDevices = await usbDevice.pairedDevices; // get paired devices
+var pairedDevice = await usbDevice.requestDevices([DeviceFilter(vendorId : 0x00, productId: 0x00)]); // par a device 
+List<USBConfiguration> availableConfigurations = await usbDevice.getAvailableConfigurations(pairedDevice); // get device's configurations 
+USBDeviceInfo deviceInfo = await usbDevice.getPairedDeviceInfo(pairedDevice); // get device's info
+await usbDevice.open(pairedDevice); // start session
+await usbDevice.close(pairedDevice); // close session
 ```
 
 ## Implementation
