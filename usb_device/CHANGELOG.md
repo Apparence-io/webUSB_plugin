@@ -1,3 +1,6 @@
+## 0.0.4
+
+* Change version usb device web
 ## 0.0.3
 
 * Change readme
