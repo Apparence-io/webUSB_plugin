@@ -15,11 +15,10 @@ import 'package:usb_device_platform_interface/models/transfer/usb_in_transfer_re
 import 'package:usb_device_platform_interface/models/transfer/usb_out_transfer_result.dart';
 import 'package:usb_device_platform_interface/usb_device_platform_interface.dart';
 import 'import_js/import_js_library.dart';
-
 class WebUSBPlugin extends UsbDevicePlatform {
-  late final _WebUsbJS _webUsbJS;
+  late final WebUsbJS _webUsbJS;
 
-  WebUSBPlugin() : this._webUsbJS = _WebUsbJS();
+  WebUSBPlugin():this._webUsbJS = WebUsbJS();
 
   /// Factory method that initializes the Web device plugin platform with an instance
   /// of the plugin for the web.
@@ -195,9 +194,13 @@ class WebUSBPlugin extends UsbDevicePlatform {
   }
 }
 
+
 // JS
 @JS("WebUsbJS")
-class _WebUsbJS {
+class WebUsbJS {
+
+  external factory WebUsbJS();
+
   external bool isSupported();
 
   // Pair device
