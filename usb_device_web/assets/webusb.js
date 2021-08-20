@@ -4,7 +4,7 @@ class WebUsbJS {
   }
 
   isSupported() {
-    return true;
+    return window.navigator.usb != null;
   }
 
   // Pair device
@@ -17,13 +17,13 @@ class WebUsbJS {
   }
 
   setOnConnectCallback(callback) {
-   this._navigator.usb.onconnect = ((event) => {
+    window.navigator.usb.onconnect = ((event) => {
     callback(event.device);
     });
   }
 
   setOnDisconnectCallback(callback) {
-     this._navigator.usb.ondisconnect = ((event) => {
+    window.navigator.usb.ondisconnect = ((event) => {
       callback(event.device);
       });
     }
