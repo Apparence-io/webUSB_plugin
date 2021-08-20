@@ -150,9 +150,9 @@ class WebUSBPlugin extends UsbDevicePlatform {
   }
 
   @override
-  Future<void> setOnDisconnectCallback(Function(dynamic) onConnect) async {
-    this._webUsbJS.setDisconnectCallback(allowInterop((device) {
-      onConnect(device);
+  Future<void> setOnDisconnectCallback(Function(dynamic) onDisconnect) async {
+    this._webUsbJS.setOnDisconnectCallback(allowInterop((device) {
+      onDisconnect(device);
     }));
   }
 
@@ -210,7 +210,7 @@ class WebUsbJS {
 
   external setOnConnectCallback(Function(dynamic) callback);
 
-  external setDisconnectCallback(Function(dynamic) callback);
+  external setOnDisconnectCallback(Function(dynamic) callback);
 
   /// Session setup
   external Promise open(dynamic device);

@@ -43,7 +43,7 @@ class UsbDevice {
 
   /// Set on disconnect function callback
   Future<void> setOnDisconnectCallback(Function(dynamic) onDisconnect) async {
-    _platform.setOnConnectCallback((device) => onDisconnect(device));
+    _platform.setOnDisconnectCallback((device) => onDisconnect(device));
   }
 
   /// get device's info like productId, vendorId, USB version etc..

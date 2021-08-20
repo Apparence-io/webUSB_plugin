@@ -18,8 +18,8 @@ class WebUsbJS {
 
   setOnConnectCallback(callback) {
     window.navigator.usb.onconnect = ((event) => {
-    callback(event.device);
-    });
+      callback(event.device);
+      });
   }
 
   setOnDisconnectCallback(callback) {
