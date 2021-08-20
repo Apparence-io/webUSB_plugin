@@ -1,3 +1,7 @@
+## 0.0.5
+
+* fix bug onConnect/onDisconnect
+* Change version usb device web
 ## 0.0.4
 
 * Change version usb device web

@@ -1,3 +1,6 @@
+## 0.0.4
+
+* fix bug onConnect/onDiconnect
 ## 0.0.3
 
 * fix bug in release mode
