@@ -1,3 +1,7 @@
+## 0.0.6
+
+* fix bug JS / dart mapping in release mode
+* Change version usb device web
 ## 0.0.5
 
 * fix bug onConnect/onDisconnect

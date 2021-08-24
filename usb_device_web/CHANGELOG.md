@@ -1,3 +1,6 @@
+## 0.0.5
+
+* fix bug JS / dart class mapping
 ## 0.0.4
 
 * fix bug onConnect/onDiconnect
