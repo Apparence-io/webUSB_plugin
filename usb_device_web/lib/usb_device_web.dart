@@ -88,8 +88,9 @@ class WebUSBPlugin extends UsbDevicePlatform {
   Future<USBInTransferResult> controlTransferIn(
       dynamic device, SetupParam setup,
       {int? length}) async {
-    var res = await promiseToFuture(
-        this._webUsbJS.controlTransferIn(device, setup, length));
+    var res = await promiseToFuture(this
+        ._webUsbJS
+        .controlTransferIn(device, SetupParamJS.fromDartClass(setup), length));
     return USBInTransferResult.fromDataJS(res);
   }
 
@@ -97,8 +98,9 @@ class WebUSBPlugin extends UsbDevicePlatform {
   Future<USBOutTransferResult> controlTransferOut(
       dynamic device, SetupParam setup,
       {dynamic data}) async {
-    var res = await promiseToFuture(
-        this._webUsbJS.controlTransferOut(device, setup, data));
+    var res = await promiseToFuture(this
+        ._webUsbJS
+        .controlTransferOut(device, SetupParamJS.fromDartClass(setup), data));
     return USBOutTransferResult.fromDataJS(res);
   }
 
@@ -230,10 +232,10 @@ class WebUsbJS {
 
   /// Data transfer
   external Promise controlTransferIn(
-      dynamic device, SetupParam setup, int? length);
+      dynamic device, SetupParamJS setup, int? length);
 
   external Promise controlTransferOut(
-      dynamic device, SetupParam setup, dynamic data);
+      dynamic device, SetupParamJS setup, dynamic data);
 
   external Promise transferIn(dynamic device, int endpointNumber, int length);
 
@@ -265,5 +267,26 @@ class DeviceFilterJS {
           vendorId: deviceFilter.vendorId, productId: deviceFilter.productId));
     }
     return filtersJS;
+  }
+}
+
+@JS()
+@anonymous
+class SetupParamJS {
+  external factory SetupParamJS({
+    String requestType,
+    String recipient,
+    int request,
+    int value,
+    int index,
+  });
+
+  static SetupParamJS fromDartClass(SetupParam setupParam) {
+    return SetupParamJS(
+        requestType: setupParam.requestType,
+        recipient: setupParam.recipient,
+        request: setupParam.request,
+        value: setupParam.value,
+        index: setupParam.index);
   }
 }
