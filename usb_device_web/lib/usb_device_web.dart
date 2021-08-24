@@ -41,8 +41,13 @@ class WebUSBPlugin extends UsbDevicePlatform {
 
   @override
   Future<dynamic> requestDevices(List<DeviceFilter> filters) async {
+      List<DeviceFilterJS> filtersJS = [];
+    for (var deviceFilter in filters) {
+      filtersJS.add(DeviceFilterJS(
+          vendorId: deviceFilter.vendorId, productId: deviceFilter.productId));
+    }
     return promiseToFuture(
-        this._webUsbJS.requestDevice(DeviceFilterJS.fromDartClass(filters)));
+        this._webUsbJS.requestDevice(filtersJS));
   }
 
   @override
@@ -88,9 +93,15 @@ class WebUSBPlugin extends UsbDevicePlatform {
   Future<USBInTransferResult> controlTransferIn(
       dynamic device, SetupParam setup,
       {int? length}) async {
-    var res = await promiseToFuture(this
-        ._webUsbJS
-        .controlTransferIn(device, SetupParamJS.fromDartClass(setup), length));
+    var res = await promiseToFuture(this._webUsbJS.controlTransferIn(
+        device,
+        SetupParamJS(
+            requestType: setup.requestType,
+            recipient: setup.recipient,
+            request: setup.request,
+            value: setup.value,
+            index: setup.index),
+        length));
     return USBInTransferResult.fromDataJS(res);
   }
 
@@ -98,9 +109,15 @@ class WebUSBPlugin extends UsbDevicePlatform {
   Future<USBOutTransferResult> controlTransferOut(
       dynamic device, SetupParam setup,
       {dynamic data}) async {
-    var res = await promiseToFuture(this
-        ._webUsbJS
-        .controlTransferOut(device, SetupParamJS.fromDartClass(setup), data));
+    var res = await promiseToFuture(this._webUsbJS.controlTransferOut(
+        device,
+        SetupParamJS(
+            requestType: setup.requestType,
+            recipient: setup.recipient,
+            request: setup.request,
+            value: setup.value,
+            index: setup.index),
+        data));
     return USBOutTransferResult.fromDataJS(res);
   }
 
@@ -259,15 +276,6 @@ class Promise {
 @anonymous
 class DeviceFilterJS {
   external factory DeviceFilterJS({int vendorId, int productId});
-
-  static List<DeviceFilterJS> fromDartClass(List<DeviceFilter> deviceFilter) {
-    List<DeviceFilterJS> filtersJS = [];
-    for (var deviceFilter in deviceFilter) {
-      filtersJS.add(DeviceFilterJS(
-          vendorId: deviceFilter.vendorId, productId: deviceFilter.productId));
-    }
-    return filtersJS;
-  }
 }
 
 @JS()
@@ -280,13 +288,4 @@ class SetupParamJS {
     int value,
     int index,
   });
-
-  static SetupParamJS fromDartClass(SetupParam setupParam) {
-    return SetupParamJS(
-        requestType: setupParam.requestType,
-        recipient: setupParam.recipient,
-        request: setupParam.request,
-        value: setupParam.value,
-        index: setupParam.index);
-  }
 }
