@@ -15,10 +15,11 @@ import 'package:usb_device_platform_interface/models/transfer/usb_in_transfer_re
 import 'package:usb_device_platform_interface/models/transfer/usb_out_transfer_result.dart';
 import 'package:usb_device_platform_interface/usb_device_platform_interface.dart';
 import 'import_js/import_js_library.dart';
+
 class WebUSBPlugin extends UsbDevicePlatform {
   late final WebUsbJS _webUsbJS;
 
-  WebUSBPlugin():this._webUsbJS = WebUsbJS();
+  WebUSBPlugin() : this._webUsbJS = WebUsbJS();
 
   /// Factory method that initializes the Web device plugin platform with an instance
   /// of the plugin for the web.
@@ -40,7 +41,8 @@ class WebUSBPlugin extends UsbDevicePlatform {
 
   @override
   Future<dynamic> requestDevices(List<DeviceFilter> filters) async {
-    return promiseToFuture(this._webUsbJS.requestDevice(filters));
+    return promiseToFuture(
+        this._webUsbJS.requestDevice(DeviceFilterJS.fromDartClass(filters)));
   }
 
   @override
@@ -194,11 +196,9 @@ class WebUSBPlugin extends UsbDevicePlatform {
   }
 }
 
-
 // JS
 @JS("WebUsbJS")
 class WebUsbJS {
-
   external factory WebUsbJS();
 
   external bool isSupported();
@@ -206,7 +206,7 @@ class WebUsbJS {
   // Pair device
   external Promise getPairedDevices();
 
-  external Promise requestDevice(List<DeviceFilter> filters);
+  external Promise requestDevice(List<DeviceFilterJS> filters);
 
   external setOnConnectCallback(Function(dynamic) callback);
 
@@ -251,4 +251,19 @@ class WebUsbJS {
 @anonymous
 class Promise {
   external void then(Function onFulfilled, Function onRejected);
+}
+
+@JS()
+@anonymous
+class DeviceFilterJS {
+  external factory DeviceFilterJS({int vendorId, int productId});
+
+  static List<DeviceFilterJS> fromDartClass(List<DeviceFilter> deviceFilter) {
+    List<DeviceFilterJS> filtersJS = [];
+    for (var deviceFilter in deviceFilter) {
+      filtersJS.add(DeviceFilterJS(
+          vendorId: deviceFilter.vendorId, productId: deviceFilter.productId));
+    }
+    return filtersJS;
+  }
 }
