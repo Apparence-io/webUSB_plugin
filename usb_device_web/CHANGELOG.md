@@ -1,3 +1,6 @@
+## 0.0.6
+
+* fix bug JS
 ## 0.0.5
 
 * fix bug JS / dart class mapping

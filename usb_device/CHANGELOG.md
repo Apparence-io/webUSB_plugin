@@ -1,3 +1,6 @@
+## 0.0.7
+
+* fix bug JS 
 ## 0.0.6
 
 * fix bug JS / dart mapping in release mode

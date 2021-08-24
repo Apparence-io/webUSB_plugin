@@ -157,17 +157,17 @@ packages:
   usb_device_platform_interface:
     dependency: "direct main"
     description:
-      name: usb_device_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.1"
+      path: "../usb_device_platform_interface"
+      relative: true
+    source: path
+    version: "0.0.2"
   usb_device_web:
     dependency: "direct main"
     description:
-      name: usb_device_web
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.1"
+      path: "../usb_device_web"
+      relative: true
+    source: path
+    version: "0.0.4"
   vector_math:
     dependency: transitive
     description:

@@ -1,6 +1,6 @@
 name: usb_device_web
 description: A stub implementation of the Device usb plugin for Web. This package is used in usb_device plugin
-version: 0.0.5
+version: 0.0.6
 repository: https://github.com/Apparence-io/webUSB_plugin/
 
 environment:
