@@ -1,4 +1,3 @@
-
 class MainViewModel {
   late bool isLoading;
   late bool isSupported;

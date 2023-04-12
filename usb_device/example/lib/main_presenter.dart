@@ -54,9 +54,7 @@ class MainPresenter {
   }
 
   void requestDevices() async {
-    this.viewModel.pairedDevice = await this
-        ._usbDevice
-        .requestDevices([]);
+    this.viewModel.pairedDevice = await this._usbDevice.requestDevices([]);
     this.viewModel.fabIsVisible = true;
     this.viewInterface.refresh();
   }

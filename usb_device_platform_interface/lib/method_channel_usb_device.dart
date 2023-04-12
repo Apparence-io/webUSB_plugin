@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:usb_device_platform_interface/models/configurations/usb_configuration.dart';
-import 'package:usb_device_platform_interface/models/param/device_filter.dart';
-import 'package:usb_device_platform_interface/models/param/setup_param.dart';
-import 'package:usb_device_platform_interface/models/transfer/usb_in_transfer_result.dart';
 import 'package:usb_device_platform_interface/usb_device_platform_interface.dart';
-
-import 'models/configurations/usb_device_info.dart';
-import 'models/transfer/usb_out_transfer_result.dart';
 
 /// An implementation of [UsbDevicePlatform] that uses method channels.
 class MethodChannelUsbDevice extends UsbDevicePlatform {

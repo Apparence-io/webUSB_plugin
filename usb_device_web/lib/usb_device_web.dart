@@ -4,16 +4,11 @@ library usb_device_web;
 import 'dart:async';
 import 'dart:js_util';
 import 'dart:typed_data';
+
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:js/js.dart';
-import 'package:usb_device_platform_interface/models/configurations/usb_configuration.dart';
-import 'package:usb_device_platform_interface/models/configurations/usb_device_info.dart';
-import 'package:usb_device_platform_interface/models/param/device_filter.dart';
-import 'package:usb_device_platform_interface/models/param/setup_param.dart';
-import 'package:usb_device_platform_interface/models/transfer/response/status_response.dart';
-import 'package:usb_device_platform_interface/models/transfer/usb_in_transfer_result.dart';
-import 'package:usb_device_platform_interface/models/transfer/usb_out_transfer_result.dart';
 import 'package:usb_device_platform_interface/usb_device_platform_interface.dart';
+
 import 'import_js/import_js_library.dart';
 
 class WebUSBPlugin extends UsbDevicePlatform {
@@ -41,13 +36,12 @@ class WebUSBPlugin extends UsbDevicePlatform {
 
   @override
   Future<dynamic> requestDevices(List<DeviceFilter> filters) async {
-      List<DeviceFilterJS> filtersJS = [];
+    List<DeviceFilterJS> filtersJS = [];
     for (var deviceFilter in filters) {
       filtersJS.add(DeviceFilterJS(
           vendorId: deviceFilter.vendorId, productId: deviceFilter.productId));
     }
-    return promiseToFuture(
-        this._webUsbJS.requestDevice(filtersJS));
+    return promiseToFuture(this._webUsbJS.requestDevice(filtersJS));
   }
 
   @override

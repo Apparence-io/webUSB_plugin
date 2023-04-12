@@ -1,5 +1,4 @@
 import 'dart:js_util';
-import 'dart:typed_data';
 
 class USBIsochronousOutTransferResult {
   final dynamic packets;
